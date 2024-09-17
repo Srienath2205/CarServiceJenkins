@@ -40,11 +40,14 @@ public class VehicleController {
             @RequestParam("model") String model,
             @RequestParam("year") int year,
             @RequestParam("vin") String vin,
+            @RequestParam("customerID") int customerID,
+
             @RequestParam(value = "vehicleImage", required = false) MultipartFile vehicleImageFile,
             @RequestParam(value = "registrationCertificate", required = false) MultipartFile registrationCertificateFile) {
 
         try {
             Vehicle vehicle = new Vehicle();
+            vehicle.setCustomerID(customerID);
             vehicle.setMake(make);
             vehicle.setModel(model);
             vehicle.setYear(year);

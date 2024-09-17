@@ -14,4 +14,20 @@ public interface ServiceCenterRepository {
     public void update(ServiceCenter serviceCenter);
 
     public void deleteById(int id);
+
+	List<ServiceCenter> getPendingRequest();
+
+	List<ServiceCenter> getApprovedRequest();
+
+	List<ServiceCenter> getRejectedRequest();
+
+	Object getApprovedCount();
+
+	Object getRejectedCount();
+
+	Object getPendingCount();
+
+	boolean updateEmailApproved(int serviceCenterID);
+
+	boolean updateEmailRejected(int serviceCenterID);
 }

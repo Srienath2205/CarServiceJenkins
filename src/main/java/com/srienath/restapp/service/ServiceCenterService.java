@@ -13,4 +13,21 @@ public interface ServiceCenterService {
     void update(ServiceCenter serviceCenter);
 
     void delete(int id);
+
+	Object getPendingCount();
+
+	Object getRejectedCount();
+
+	Object getApprovedCount();
+	
+	List<ServiceCenter> getPendingRequest();
+	
+	List<ServiceCenter> getApprovedRequest();
+
+	List<ServiceCenter> getRejectedRequest();
+
+	boolean updateApprovedRequest(int serviceCenterID);
+	
+	boolean updateRejectedRequest(int serviceCenterID);
+
 }

@@ -1,5 +1,6 @@
 package com.srienath.restapp.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,11 +19,14 @@ public class Vehicle {
     private String model;
     private int year;
     private String vin;
+    private int customerID;
 
     @Lob
+    @Column(name="vehicleImage",length=1000000000)
     private byte[] vehicleImage;
 
     @Lob
+    @Column(name="registrationCertificate",length=1000000000)
     private byte[] registrationCertificate;
 
 	public int getVehicleID() {
@@ -65,6 +69,14 @@ public class Vehicle {
 		this.vin = vin;
 	}
 
+	public int getCustomerID() {
+		return customerID;
+	}
+
+	public void setCustomerID(int customerID) {
+		this.customerID = customerID;
+	}
+
 	public byte[] getVehicleImage() {
 		return vehicleImage;
 	}
@@ -81,7 +93,7 @@ public class Vehicle {
 		this.registrationCertificate = registrationCertificate;
 	}
 
-	public Vehicle(int vehicleID, String make, String model, int year, String vin, byte[] vehicleImage,
+	public Vehicle(int vehicleID, String make, String model, int year, String vin, int customerID, byte[] vehicleImage,
 			byte[] registrationCertificate) {
 		super();
 		this.vehicleID = vehicleID;
@@ -89,6 +101,7 @@ public class Vehicle {
 		this.model = model;
 		this.year = year;
 		this.vin = vin;
+		this.customerID = customerID;
 		this.vehicleImage = vehicleImage;
 		this.registrationCertificate = registrationCertificate;
 	}
@@ -96,10 +109,6 @@ public class Vehicle {
 	public Vehicle() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-
-	public Vehicle(int vehicleID2) {
-		this.vehicleID = vehicleID2;
-	}
+	}	
     
 }

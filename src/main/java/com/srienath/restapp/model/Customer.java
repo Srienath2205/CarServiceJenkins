@@ -5,8 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -27,10 +25,6 @@ public class Customer {
     
     @Column(unique = true, nullable = false)
     private String phoneNumber;
-    
-    @OneToOne
-    @JoinColumn(name = "vehicleID")
-    private Vehicle vehicle;
 
 	public int getCustomerID() {
 		return customerID;
@@ -80,16 +74,7 @@ public class Customer {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public Vehicle getVehicle() {
-		return vehicle;
-	}
-
-	public void setVehicle(Vehicle vehicle) {
-		this.vehicle = vehicle;
-	}
-
-	public Customer(int customerID, String name, String password, String email, String address, String phoneNumber, 
-			Vehicle vehicle) {
+	public Customer(int customerID, String name, String password, String email, String address, String phoneNumber) {
 		super();
 		this.customerID = customerID;
 		this.name = name;
@@ -97,12 +82,11 @@ public class Customer {
 		this.email = email;
 		this.address = address;
 		this.phoneNumber = phoneNumber;
-		this.vehicle = vehicle;
 	}
 
 	public Customer() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
+	}   
 
 }

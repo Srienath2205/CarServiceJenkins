@@ -37,9 +37,7 @@ public class ServiceCenter {
     private String status;
     
     private Date approvalDate;
-    
-    private int rating;
-    
+        
     @Lob
     @Column(name="businessregistercertificate",length=1000000000)
     private byte[] businessRegistrationCertificate;
@@ -51,10 +49,6 @@ public class ServiceCenter {
     @Lob
     @Column(name="owneridentityproof",length=1000000000)
     private byte[] ownerIdentityProof;
-    
-    @Lob
-    @Column(name="warehouseagreement",length=1000000000)
-    private byte[] warehouseAgreement;
     
     @OneToOne
     @JoinColumn(name = "adminID")
@@ -140,14 +134,6 @@ public class ServiceCenter {
 		this.approvalDate = approvalDate;
 	}
 
-	public int getRating() {
-		return rating;
-	}
-
-	public void setRating(int rating) {
-		this.rating = rating;
-	}
-
 	public byte[] getBusinessRegistrationCertificate() {
 		return businessRegistrationCertificate;
 	}
@@ -172,14 +158,6 @@ public class ServiceCenter {
 		this.ownerIdentityProof = ownerIdentityProof;
 	}
 
-	public byte[] getWarehouseAgreement() {
-		return warehouseAgreement;
-	}
-
-	public void setWarehouseAgreement(byte[] warehouseAgreement) {
-		this.warehouseAgreement = warehouseAgreement;
-	}
-
 	public Admin getAdmin() {
 		return admin;
 	}
@@ -190,8 +168,7 @@ public class ServiceCenter {
 
 	public ServiceCenter(int serviceCenterID, String serviceCenterName, byte[] serviceCenterImage, String address,
 			String phoneNumber, String email, String location, String description, String status, Date approvalDate,
-			int rating, byte[] businessRegistrationCertificate, byte[] insuranceDocument, byte[] ownerIdentityProof,
-			byte[] warehouseAgreement, Admin admin) {
+			byte[] businessRegistrationCertificate, byte[] insuranceDocument, byte[] ownerIdentityProof, Admin admin) {
 		super();
 		this.serviceCenterID = serviceCenterID;
 		this.serviceCenterName = serviceCenterName;
@@ -203,17 +180,15 @@ public class ServiceCenter {
 		this.description = description;
 		this.status = status;
 		this.approvalDate = approvalDate;
-		this.rating = rating;
 		this.businessRegistrationCertificate = businessRegistrationCertificate;
 		this.insuranceDocument = insuranceDocument;
 		this.ownerIdentityProof = ownerIdentityProof;
-		this.warehouseAgreement = warehouseAgreement;
 		this.admin = admin;
 	}
 
 	public ServiceCenter() {
 		super();
 		// TODO Auto-generated constructor stub
-	}	
+	}
 	
 }
