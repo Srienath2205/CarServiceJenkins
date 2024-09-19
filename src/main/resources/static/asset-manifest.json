@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.98b8e66f.css",
+    "main.js": "/static/js/main.e7332d66.js",
+    "static/js/453.4e54e562.chunk.js": "/static/js/453.4e54e562.chunk.js",
+    "static/media/CarServiceVideo.mp4": "/static/media/CarServiceVideo.84f27a28ed6dc6f8daa2.mp4",
+    "static/media/ds4.jpg": "/static/media/ds4.8b9910da1fac444fccba.jpg",
+    "static/media/ds5.jpg": "/static/media/ds5.f3abeb4930d63fcf894d.jpg",
+    "static/media/ds1.jpg": "/static/media/ds1.c0b6197e82bcdbe130e1.jpg",
+    "static/media/ds6.jpg": "/static/media/ds6.1681660a3a4d92900180.jpg",
+    "static/media/ds3.jpg": "/static/media/ds3.2e0e5dd6feca5b79d1f2.jpg",
+    "static/media/ds2.jpg": "/static/media/ds2.f616090bd64f788bad8c.jpg",
+    "static/media/homebackground.avif": "/static/media/homebackground.c9487848e943ae4ac48a.avif",
+    "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/index.html",
+    "main.98b8e66f.css.map": "/static/css/main.98b8e66f.css.map",
+    "main.e7332d66.js.map": "/static/js/main.e7332d66.js.map",
+    "453.4e54e562.chunk.js.map": "/static/js/453.4e54e562.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.98b8e66f.css",
+    "static/js/main.e7332d66.js"
+  ]
+}
