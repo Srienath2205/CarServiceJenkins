@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 import com.srienath.restapp.model.Admin;
 import com.srienath.restapp.repo.AdminRepository;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
@@ -47,7 +48,13 @@ public class AdminRepositoryImpl implements AdminRepository {
 	    
 	    @Override
 	    public Admin findByEmail(String email) {
-	        return entityManager.find(Admin.class, email);
+	        try {
+	            Query query = entityManager.createQuery("SELECT a FROM Admin a WHERE a.email = :email");
+	            query.setParameter("email", email);
+	            return (Admin) query.getSingleResult();
+	        } catch (NoResultException e) {
+	            return null;
+	        }
 	    }
 	    
 	    @Override

@@ -11,6 +11,8 @@ import jakarta.persistence.Table;
 import java.sql.Time;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "appointment")
 public class Appointment {
@@ -23,10 +25,12 @@ public class Appointment {
     private Customer customer;
 
     @ManyToOne
-    @JoinColumn(name = "adminID")
-    private Admin admin;
+    @JoinColumn(name = "serviceCenterID")
+    private ServiceCenter serviceCenter;
 
     private Date appointmentDate;
+    
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
     private Time appointmentTime;
     private String serviceType;
     private String appointmentStatus;
@@ -43,11 +47,11 @@ public class Appointment {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
-	public Admin getAdmin() {
-		return admin;
+	public ServiceCenter getServiceCenter() {
+		return serviceCenter;
 	}
-	public void setAdmin(Admin admin) {
-		this.admin = admin;
+	public void setServiceCenter(ServiceCenter serviceCenter) {
+		this.serviceCenter = serviceCenter;
 	}
 	public Date getAppointmentDate() {
 		return appointmentDate;
@@ -74,12 +78,12 @@ public class Appointment {
 		this.appointmentStatus = appointmentStatus;
 	}
 	
-	public Appointment(int appointmentID, Customer customer, Admin admin, Date appointmentDate, Time appointmentTime,
-			String serviceType, String appointmentStatus) {
+	public Appointment(int appointmentID, Customer customer, ServiceCenter serviceCenter, Date appointmentDate,
+			Time appointmentTime, String serviceType, String appointmentStatus) {
 		super();
 		this.appointmentID = appointmentID;
 		this.customer = customer;
-		this.admin = admin;
+		this.serviceCenter = serviceCenter;
 		this.appointmentDate = appointmentDate;
 		this.appointmentTime = appointmentTime;
 		this.serviceType = serviceType;
@@ -89,6 +93,6 @@ public class Appointment {
 	public Appointment() {
 		super();
 		// TODO Auto-generated constructor stub
-	}    
+	}	
 	
 }

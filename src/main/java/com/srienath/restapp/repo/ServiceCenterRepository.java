@@ -30,4 +30,6 @@ public interface ServiceCenterRepository {
 	boolean updateEmailApproved(int serviceCenterID);
 
 	boolean updateEmailRejected(int serviceCenterID);
+
+	public List<ServiceCenter> findAllCentersWithDistinctLocations();
 }

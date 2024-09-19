@@ -27,7 +27,10 @@ public class CustomerServiceImpl implements CustomerService {
 	    }
 
 	    @Override
-	    public void create(Customer customer) {
+	    public void create(Customer customer) throws Exception {
+	        if (customerRepository.findByEmail(customer.getEmail()) != null) {
+	            throw new Exception("Email already exists.");
+	        }
 	        customerRepository.save(customer);
 	    }
 
@@ -39,6 +42,11 @@ public class CustomerServiceImpl implements CustomerService {
 	    @Override
 	    public void delete(int id) {
 	        customerRepository.deleteById(id);
+	    }
+	    
+	    @Override
+	    public Customer getByEmail(String email) {
+	        return customerRepository.findByEmail(email);
 	    }
 	    
 	    public Customer loginCustomer(String email, String password) {

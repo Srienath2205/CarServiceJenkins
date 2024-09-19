@@ -53,6 +53,9 @@ public class AdminController {
             }
             return ResponseEntity.ok("Admin Registered Successfully");
         } catch (Exception e) {
+            if (e.getMessage().equals("Email already exists.")) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("An admin with this email already exists.");
+            }
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Admin Registration Failure");
         }

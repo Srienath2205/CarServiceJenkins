@@ -193,5 +193,16 @@ public class ServiceCenterRepositoryImpl implements ServiceCenterRepository {
 			}
 			return false;
 		}
+		
+		@Override
+	    public List<ServiceCenter> findAllCentersWithDistinctLocations() {
+	        try {
+	            String hql = "FROM ServiceCenter";
+	            return entityManager.createQuery(hql, ServiceCenter.class).getResultList();
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	            return null;
+	        }
+	    }
 
 }

@@ -4,7 +4,7 @@ import com.srienath.restapp.model.Inventory;
 import com.srienath.restapp.service.InventoryService;
 import com.srienath.restapp.service.ServiceCenterService;
 import com.srienath.restapp.service.StockPaymentReportService;
-import com.srienath.restapp.service.WarehouseService;
+import com.srienath.restapp.service.SuperAdminService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
@@ -17,15 +17,15 @@ public class InventoryController {
 
     private final InventoryService inventoryService;
     private final ServiceCenterService serviceCenterService;
-    private final WarehouseService warehouseService;
+    private final SuperAdminService superAdminService;
     private final StockPaymentReportService stockPaymentReportService;
 
     public InventoryController(InventoryService inventoryService, ServiceCenterService serviceCenterService,
-			WarehouseService warehouseService, StockPaymentReportService stockPaymentReportService) {
+			SuperAdminService superAdminService, StockPaymentReportService stockPaymentReportService) {
 		super();
 		this.inventoryService = inventoryService;
 		this.serviceCenterService = serviceCenterService;
-		this.warehouseService = warehouseService;
+		this.superAdminService = superAdminService;
 		this.stockPaymentReportService = stockPaymentReportService;
 	}
 
@@ -52,8 +52,7 @@ public class InventoryController {
             @RequestParam("reorderLimit") int reorderLimit,
             @RequestParam("price") double price,
             @RequestParam("serviceCenterID") int serviceCenterID,
-            @RequestParam("warehouseID") int warehouseID,
-            @RequestParam("stockPaymentReportID") int stockPaymentReportID,
+            @RequestParam("superAdminID") int superAdminID,
             @RequestParam(value = "partImage", required = false) MultipartFile partImage) {
         
         Inventory inventory = new Inventory();
@@ -62,10 +61,8 @@ public class InventoryController {
         inventory.setQuantityInStock(quantityInStock);
         inventory.setReorderLimit(reorderLimit);
         inventory.setPrice(price);
-
          inventory.setServiceCenter(serviceCenterService.getById(serviceCenterID));
-         inventory.setWarehouse(warehouseService.getById(warehouseID));
-         inventory.setStockPaymentReport(stockPaymentReportService.getById(stockPaymentReportID));
+         inventory.setSuperadmin(superAdminService.getById(superAdminID));
 
         if (partImage != null && !partImage.isEmpty()) {
             try {
@@ -94,7 +91,7 @@ public class InventoryController {
             @RequestParam("reorderLimit") int reorderLimit,
             @RequestParam("price") double price,
             @RequestParam("serviceCenterID") int serviceCenterID,
-            @RequestParam("warehouseID") int warehouseID,
+            @RequestParam("superAdminID") int superAdminID,
             @RequestParam("stockPaymentReportID") int stockPaymentReportID,
             @RequestParam(value = "partImage", required = false) MultipartFile partImage) {
 
@@ -111,7 +108,7 @@ public class InventoryController {
             existingInventory.setPrice(price);
 
              existingInventory.setServiceCenter(serviceCenterService.getById(serviceCenterID));
-             existingInventory.setWarehouse(warehouseService.getById(warehouseID));
+             existingInventory.setSuperadmin(superAdminService.getById(superAdminID));
              existingInventory.setStockPaymentReport(stockPaymentReportService.getById(stockPaymentReportID));
 
             if (partImage != null && !partImage.isEmpty()) {

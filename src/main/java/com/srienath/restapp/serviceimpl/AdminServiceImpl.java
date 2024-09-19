@@ -27,7 +27,10 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public void create(Admin admin) {
+    public void create(Admin admin) throws Exception {
+        if (adminRepository.findByEmail(admin.getEmail()) != null) {
+            throw new Exception("Email already exists.");
+        }
         adminRepository.create(admin);
     }
 

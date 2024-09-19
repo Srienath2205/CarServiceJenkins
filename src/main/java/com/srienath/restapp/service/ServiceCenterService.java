@@ -30,4 +30,6 @@ public interface ServiceCenterService {
 	
 	boolean updateRejectedRequest(int serviceCenterID);
 
+	List<String> getDistinctLocations();
+
 }

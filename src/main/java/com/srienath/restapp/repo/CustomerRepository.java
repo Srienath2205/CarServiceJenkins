@@ -15,4 +15,6 @@ public interface CustomerRepository {
     public void deleteById(int id);
 
 	public Customer loginCustomer(String email, String password);
+
+	Customer findByEmail(String email);
 }

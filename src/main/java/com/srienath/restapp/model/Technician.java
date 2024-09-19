@@ -16,7 +16,7 @@ public class Technician {
     private int technicianID;
     
     @Lob
-    @Column(name="profileImage",length=1000)
+    @Column(name="profileImage",length=1000000000)
     private byte[] profileImage;
 
     private String name;

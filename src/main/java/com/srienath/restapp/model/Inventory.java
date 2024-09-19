@@ -20,7 +20,7 @@ public class Inventory {
     private String partName;
     
     @Lob
-    @Column(name="partImage",length=1000)
+    @Column(name="partImage",length=1000000000)
     private byte[] partImage;
     
     private String description;
@@ -36,8 +36,8 @@ public class Inventory {
     private ServiceCenter serviceCenter;
 
     @ManyToOne
-    @JoinColumn(name = "warehouseID")
-    private Warehouse warehouse;
+    @JoinColumn(name = "superAdminID")
+    private SuperAdmin superadmin;
     
     @ManyToOne
     @JoinColumn(name = "id")
@@ -107,12 +107,12 @@ public class Inventory {
 		this.serviceCenter = serviceCenter;
 	}
 
-	public Warehouse getWarehouse() {
-		return warehouse;
+	public SuperAdmin getSuperadmin() {
+		return superadmin;
 	}
 
-	public void setWarehouse(Warehouse warehouse) {
-		this.warehouse = warehouse;
+	public void setSuperadmin(SuperAdmin superadmin) {
+		this.superadmin = superadmin;
 	}
 
 	public StockPaymentReport getStockPaymentReport() {
@@ -124,7 +124,7 @@ public class Inventory {
 	}
 
 	public Inventory(int partID, String partName, byte[] partImage, String description, int quantityInStock,
-			int reorderLimit, double price, ServiceCenter serviceCenter, Warehouse warehouse,
+			int reorderLimit, double price, ServiceCenter serviceCenter, SuperAdmin superadmin,
 			StockPaymentReport stockPaymentReport) {
 		super();
 		this.partID = partID;
@@ -135,13 +135,13 @@ public class Inventory {
 		this.reorderLimit = reorderLimit;
 		this.price = price;
 		this.serviceCenter = serviceCenter;
-		this.warehouse = warehouse;
+		this.superadmin = superadmin;
 		this.stockPaymentReport = stockPaymentReport;
 	}
 
 	public Inventory() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
+	}	
 
 }

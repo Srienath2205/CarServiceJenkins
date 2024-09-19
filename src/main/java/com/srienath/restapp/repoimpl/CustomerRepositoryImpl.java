@@ -1,11 +1,11 @@
 package com.srienath.restapp.repoimpl;
 
 import java.util.List;
-
 import org.springframework.stereotype.Repository;
 import com.srienath.restapp.model.Customer;
 import com.srienath.restapp.repo.CustomerRepository;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 import jakarta.transaction.Transactional;
@@ -43,6 +43,16 @@ public class CustomerRepositoryImpl implements CustomerRepository {
             entityManager.remove(customer);
         }
     }
+    
+    @Override
+    public Customer findByEmail(String email) {
+    	try {
+            Query query = entityManager.createQuery("SELECT c FROM Customer c WHERE c.email = :email");
+            query.setParameter("email", email);
+            return (Customer) query.getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }    }
     
     @Override
     public Customer loginCustomer(String email, String password) {

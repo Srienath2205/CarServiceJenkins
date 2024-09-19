@@ -6,7 +6,7 @@ import com.srienath.restapp.model.Admin;
 public interface AdminService {
 	Admin getById(int id);
     List<Admin> getAll();
-    void create(Admin admin);
+    void create(Admin admin) throws Exception;
     void update(Admin admin);
     void delete(int id);
     Admin getByEmail(String email);

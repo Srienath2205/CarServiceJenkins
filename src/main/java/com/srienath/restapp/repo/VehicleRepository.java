@@ -4,13 +4,15 @@ import java.util.List;
 import com.srienath.restapp.model.Vehicle;
 
 public interface VehicleRepository {
-	public Vehicle findById(int id);
-
-    public List<Vehicle> findAll();
-
-    public void save(Vehicle vehicle);
-
-    public void update(Vehicle vehicle);
-
-    public void deleteById(int id);
+	
+	Vehicle findById(int id);
+	
+    List<Vehicle> findAll();
+    
+    void save(Vehicle vehicle);
+    
+    void update(Vehicle vehicle);
+    
+    void deleteById(int id);
+    
 }

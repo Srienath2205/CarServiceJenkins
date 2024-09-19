@@ -8,11 +8,13 @@ public interface CustomerService {
 
     public List<Customer> getAll();
 
-    public void create(Customer customer);
+    public void create(Customer customer) throws Exception;
 
     public void update(Customer customer);
 
     public void delete(int id);
 
 	public Customer loginCustomer(String email, String password);
+
+	Customer getByEmail(String email);
 }

@@ -41,7 +41,6 @@ public class VehicleController {
             @RequestParam("year") int year,
             @RequestParam("vin") String vin,
             @RequestParam("customerID") int customerID,
-
             @RequestParam(value = "vehicleImage", required = false) MultipartFile vehicleImageFile,
             @RequestParam(value = "registrationCertificate", required = false) MultipartFile registrationCertificateFile) {
 

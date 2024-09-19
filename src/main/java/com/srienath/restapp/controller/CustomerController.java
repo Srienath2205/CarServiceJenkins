@@ -57,6 +57,9 @@ public class CustomerController {
             
             return ResponseEntity.ok("Customer Registered Successfully");
         } catch (Exception e) {
+            if (e.getMessage().equals("Email already exists.")) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("A Customer with this email already exists.");
+            }
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Customer Registration Failure");
         }
@@ -123,6 +126,16 @@ public class CustomerController {
         } catch (Exception e) {
             e.printStackTrace();
             return "Error deleting customer";
+        }
+    }
+    
+    @GetMapping("/{email}")
+    public Customer getCustomerByEmail(@PathVariable String email) {
+        Customer customer = customerService.getByEmail(email);
+        if (customer != null) {
+            return customer;
+        } else {
+            throw new RuntimeException("Customer not found");
         }
     }
     

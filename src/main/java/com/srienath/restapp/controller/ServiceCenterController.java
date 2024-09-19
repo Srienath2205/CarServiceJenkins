@@ -218,5 +218,11 @@ public class ServiceCenterController {
 	public Object getRejectedCount() {
 		return serviceCenterService.getRejectedCount();
 	}
+	
+	@GetMapping("/locations")
+    public ResponseEntity<List<String>> getDistinctLocations() {
+        List<String> locations = serviceCenterService.getDistinctLocations();
+        return ResponseEntity.ok(locations);
+    }
 	 
 }
